@@ -1,6 +1,9 @@
+import Path.{flat, relativeTo}
+
+
 name := "fhirproto"
 
-version := "0.0.1"
+version := "0.0.2-SNAPSHOT"
 
 scalaVersion := "2.11.12"
 
@@ -8,6 +11,14 @@ PB.targets in Compile := Seq(scalapb.gen() -> (sourceManaged in Compile).value)
 PB.protoSources in Compile := Seq(baseDirectory.value / "protobuf" / "proto")
 PB.includePaths in Compile -= baseDirectory.value / "protobuf" / "proto"
 PB.includePaths in Compile += baseDirectory.value / "protobuf"
+
+// publish generated sources
+mappings in (Compile, packageSrc) ++= {
+  val srcs = (managedSources in Compile).value
+  val sdirs = (managedSourceDirectories in Compile).value
+  val base = baseDirectory.value
+  (srcs --- sdirs --- base) pair (relativeTo(sdirs) | relativeTo(base) | flat)
+}
 
 libraryDependencies ++= Seq(
   "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf"
@@ -33,8 +44,16 @@ developers := List(
   )
 )
 
+organization := "com.carbonhealth"
+
 publishMavenStyle := true
 
-publishTo := Some("snapshots" at "https://oss.sonatype.org/content/repositories/snapshots")
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
 
 lazy val root = project.in(file("."))
