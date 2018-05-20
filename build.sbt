@@ -3,7 +3,7 @@ import Path.{flat, relativeTo}
 
 name := "fhirproto"
 
-version := "0.0.2-SNAPSHOT"
+version := "0.0.3-SNAPSHOT"
 
 scalaVersion := "2.11.12"
 
