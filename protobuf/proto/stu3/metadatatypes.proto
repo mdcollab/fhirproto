@@ -21,7 +21,7 @@ import "proto/stu3/codes.proto";
 import "proto/stu3/datatypes.proto";
 
 option java_multiple_files = true;
-option java_package = "com.google.fhir.stu3.proto";
+option java_package = "com.carbonhealth.fhir.stu3.proto";
 
 // Auto-generated from StructureDefinition for BackboneElement.
 // Base for elements defined inside a resource.
