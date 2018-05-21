@@ -5,7 +5,7 @@ name := "fhirproto"
 
 version := "0.0.3-SNAPSHOT"
 
-scalaVersion := "2.11.12"
+scalaVersion := "2.12.6"
 
 PB.targets in Compile := Seq(scalapb.gen() -> (sourceManaged in Compile).value)
 PB.protoSources in Compile := Seq(baseDirectory.value / "protobuf" / "proto")
