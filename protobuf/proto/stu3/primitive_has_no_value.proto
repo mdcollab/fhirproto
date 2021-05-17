@@ -21,6 +21,11 @@ option java_package = "com.carbonhealth.fhir.stu3.proto";
 
 import "proto/stu3/annotations.proto";
 import "proto/stu3/datatypes.proto";
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+  preserve_unknown_fields: false
+};
 
 // This is a Google extension described by
 // https://g.co/fhir/StructureDefinition/primitiveHasNoValue
