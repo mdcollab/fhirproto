@@ -57,3 +57,9 @@ publishTo := {
 }
 
 lazy val root = project.in(file("."))
+
+credentials += Credentials("Sonatype Nexus Repository Manager",
+        "oss.sonatype.org",
+        "Sonatype username",
+        "Sonatype password")
+
