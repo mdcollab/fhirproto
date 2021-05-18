@@ -16,3 +16,6 @@ credentials from `password`, named `issues.sonatype.org` and then run
 ```bash
 JAVA_OPTS="-Xmx4g" sbt "publish"
 ```
+
+## Sonatype OSS info
+[This ticket](https://issues.sonatype.org/browse/OSSRH-39900) has the history of how the sonatype account was created.
