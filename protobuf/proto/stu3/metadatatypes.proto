@@ -19,6 +19,11 @@ package google.fhir.stu3.proto;
 import "proto/stu3/annotations.proto";
 import "proto/stu3/codes.proto";
 import "proto/stu3/datatypes.proto";
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+  preserve_unknown_fields: false
+};
 
 option java_multiple_files = true;
 option java_package = "com.carbonhealth.fhir.stu3.proto";

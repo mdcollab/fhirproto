@@ -3,7 +3,7 @@ import Path.{flat, relativeTo}
 
 name := "fhirproto"
 
-version := "0.0.4-SNAPSHOT"
+version := "0.0.5-SNAPSHOT"
 
 scalaVersion := "2.12.6"
 
@@ -57,3 +57,9 @@ publishTo := {
 }
 
 lazy val root = project.in(file("."))
+
+credentials += Credentials("Sonatype Nexus Repository Manager",
+        "oss.sonatype.org",
+        "Sonatype username",
+        "Sonatype password")
+
